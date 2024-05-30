@@ -12,3 +12,48 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Admin {
+  id       Int    @id @default(autoincrement())
+  name     String
+  login    String
+  password String
+}
+
+model Broker {
+  id       Int        @id @default(autoincrement())
+  name     String
+  phone    String
+  email    String
+  image    Bytes
+  Immobile Immobile[]
+}
+
+model Address {
+  id       Int       @id @default(autoincrement())
+  street   String
+  district String
+  city     String
+  state    String
+  number   BigInt
+  Immobile Immobile?
+}
+
+model Immobile {
+  id              Int      @id @default(autoincrement())
+  id_broker       Int
+  broker          Broker   @relation(fields: [id_broker], references: [id])
+  description     String   @db.Text()
+  address         Address  @relation(fields: [address_id], references: [id])
+  address_id      Int      @unique
+  price           Decimal  @db.Decimal(12, 3)
+  additional      String   @db.VarChar(255)
+  size            Float    @db.DoublePrecision()
+  bathroom        Int
+  vehicle_vacany  Int
+  bedrooms        Int
+  recreation_area Int
+  pools           Int
+  created_at      DateTime @default(now())
+  updated_at      DateTime @default(now())
+}
