@@ -25,7 +25,7 @@ model Broker {
   name     String
   phone    String
   email    String
-  image    Bytes
+  image    Bytes      @ignore
   Immobile Immobile[]
 }
 

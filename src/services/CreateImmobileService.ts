@@ -5,7 +5,7 @@ import { IAddress, IImmobile } from "../interfaces/interfaces";
 
 
 export class CreateImmobileService {
-    async execute(address: Address, immobile: Immobile) {
+    async execute(address: Address, immobile: Immobile): Promise<Immobile | Error> {
         const prisma = new PrismaClient()
         const { id_broker, description, price, additional, size, bathroom, vehicle_vacany, bedrooms, recreation_area, pools } = immobile;
 
