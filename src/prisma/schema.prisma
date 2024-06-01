@@ -46,8 +46,24 @@ model Immobile {
   bedrooms        Int
   recreation_area Int
   pools           Int
+  id_category     Int
+  id_type         Int
   created_at      DateTime @default(now())
   updated_at      DateTime @default(now())
   address         Address  @relation(fields: [address_id], references: [id])
   broker          Broker   @relation(fields: [id_broker], references: [id])
+  category        Category @relation(fields: [id_category], references: [id])
+  type            Type     @relation(fields: [id_type], references: [id])
+}
+
+model Type {
+  id          Int        @id @default(autoincrement())
+  description String
+  Immobile    Immobile[]
+}
+
+model Category {
+  id          Int        @id @default(autoincrement())
+  description String
+  Immobile    Immobile[]
 }
