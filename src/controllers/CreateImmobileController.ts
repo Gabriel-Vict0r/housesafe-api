@@ -6,8 +6,10 @@ import { IAddress, IImmobile } from "../interfaces/interfaces";
 
 export class CreateImmobileController {
     async handle(req: Request, res: Response) {
-        const address = req.body
-        const immobile = req.body
+        const { address } = req.body
+        const { immobile } = req.body
+
+        //console.log('endereço da requisição', address)
         const service = new CreateImmobileService();
 
         const result = service.execute(address, immobile);

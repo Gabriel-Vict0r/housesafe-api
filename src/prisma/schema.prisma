@@ -19,7 +19,7 @@ model Broker {
   name     String
   phone    String
   email    String
-  image    String     @db.VarChar
+  image    String
   Immobile Immobile[]
 }
 
