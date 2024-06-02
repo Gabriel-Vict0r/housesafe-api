@@ -26,6 +26,6 @@ export class CreateImageController {
             }
             arrayOfImages.push(result);
         }
-        return res.status(200).json(arrayOfImages.map((element) => element));
+        return res.status(201).json(arrayOfImages.map((element) => element));
     }
 }

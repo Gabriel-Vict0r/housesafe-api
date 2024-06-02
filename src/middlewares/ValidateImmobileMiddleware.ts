@@ -42,8 +42,13 @@ const linkSchema: ObjectSchema<Immobile> = object({
 })
 
 export const validateImmobileMiddleware = async (req: Request, res: Response, next: NextFunction) => {
-    const { immobile } = req.body
-    const { address } = req.body
+    let { immobile } = req.body
+    let { address } = req.body
+    console.log(immobile);
+    // if (typeof immobile !== 'string') {
+    //     address = JSON.parse(address)
+    //     immobile = JSON.parse(immobile)
+    // }
     const validateImobile: Immobile = {
         street: address.street,
         district: address.district,
@@ -63,6 +68,7 @@ export const validateImmobileMiddleware = async (req: Request, res: Response, ne
         id_category: immobile.id_category,
         id_type: immobile.id_type
     }
+    console.log('objeto', validateImobile)
     try {
         await linkSchema.validate(validateImobile);
         return next();

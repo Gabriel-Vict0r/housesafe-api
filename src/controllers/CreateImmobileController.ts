@@ -6,16 +6,19 @@ import { IAddress, IImmobile } from "../interfaces/interfaces";
 
 export class CreateImmobileController {
     async handle(req: Request, res: Response, next: NextFunction) {
-        const { address } = req.body
-        const { immobile } = req.body
+        let { address } = req.body
+        let { immobile } = req.body
 
-        //console.log('endereço da requisição', address)
+        address = JSON.parse(address)
+        immobile = JSON.parse(immobile)
+        //console.log('endereço da requisição', req.body)
         const service = new CreateImmobileService();
 
         const result = await service.execute(address, immobile);
         if (result instanceof Error) {
             return res.status(400).json(result.message)
         }
+        req.resultId = result.id;
         return next();
     }
 }

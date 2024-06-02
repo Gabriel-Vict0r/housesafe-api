@@ -13,7 +13,7 @@ export const uploadImageMiddleware = async (req: Request, res: Response, next: N
         return next();
     } catch (error) {
         const erro = error as Error
-        return res.status(200).json({ message: erro.message })
+        return res.status(400).json({ message: erro.message })
     }
 }
 

@@ -18,8 +18,8 @@ export class CreateBrokerController {
         console.log(objBroker)
         const result = await service.execute(objBroker);
         if (result instanceof Error) {
-            return res.status(400).json(result)
+            return res.status(200).json(result)
         }
-        return res.status(200).json(result);
+        return res.status(201).json(result);
     }
 }

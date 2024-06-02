@@ -7,6 +7,9 @@ import { uploadImageMiddleware, uploadImagesMiddleware } from "./middlewares/Upl
 import { validateBrokerMiddleware } from "./middlewares/ValidateBrokerMiddleware";
 import { validateImmobileMiddleware } from "./middlewares/ValidateImmobileMiddleware";
 import { CreateImageController } from "./controllers/CreateImageController";
+import { UpdateImmobileController } from "./controllers/UpdateImmobileController";
+import { UpdateBrokerController } from "./controllers/UpdateBrokerController";
+import { GetRecentsImmobileController } from "./controllers/GetRecentsImmobileController";
 const routes = Router()
 const upload = multer(multerConfig)
 
@@ -17,10 +20,23 @@ routes.post('/broker',
     new CreateBrokerController().handle)
 
 routes.post('/immobile',
+    upload.array('image'),
     validateImmobileMiddleware,
     new CreateImmobileController().handle,
-    upload.array('image'),
     uploadImagesMiddleware,
     new CreateImageController().handle,
+)
+
+routes.put('/immobile/:id',
+    validateImmobileMiddleware,
+    new UpdateImmobileController().handle
+);
+
+routes.put('/broker/:id',
+    validateBrokerMiddleware,
+    new UpdateBrokerController().handle)
+
+routes.get('/recents-immobile',
+    new GetRecentsImmobileController().handle
 )
 export { routes }
