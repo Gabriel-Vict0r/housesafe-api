@@ -11,9 +11,13 @@ import { UpdateImmobileController } from "./controllers/UpdateImmobileController
 import { UpdateBrokerController } from "./controllers/UpdateBrokerController";
 import { GetRecentsImmobileController } from "./controllers/GetRecentsImmobileController";
 import { GetImmobileController } from "./controllers/GetImmobileController";
+import { CreateAdminController } from "./controllers/CreateAdminController";
 const routes = Router()
 const upload = multer(multerConfig)
 
+
+routes.post('/admin', new CreateAdminController().handle)
+routes.post('/login', new CreateAdminController().handle)
 routes.post('/broker',
     upload.single('image'),
     validateBrokerMiddleware,
