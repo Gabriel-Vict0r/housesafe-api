@@ -5,22 +5,19 @@ import { IAddress, IImmobile } from "../interfaces/interfaces";
 
 
 export class CreateImmobileService {
-    async execute(address: Address, immobile: Immobile): Promise<Immobile | Error> {
+    async execute(address: Address, immobile: Immobile): Promise<Address | Error> {
         const prisma = new PrismaClient()
-        const { id_broker, title, description, price, additional, size, bathroom, vehicle_vacany, bedrooms, recreation_area, pools, id_category, id_type } = immobile;
 
-        //console.log(address)
-        const addressbd = await prisma.address.create({
-            data: address
-        })
-        const newImmobile = await prisma.immobile.create({
+        const newImmobile = await prisma.address.create({
             data: {
-                id_broker,
-                title,
-                description, address_id: addressbd.id, price, additional, size, bathroom, vehicle_vacany, bedrooms, recreation_area, pools, id_category, id_type
+                ...address, Immobile: {
+                    create: immobile
+                }
+            },
+            include: {
+                Immobile: true,
             }
         })
-        console.log('imóvel', newImmobile)
         return newImmobile;
     }
 }

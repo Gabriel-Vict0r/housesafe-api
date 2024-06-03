@@ -30,7 +30,7 @@ model Address {
   district String
   city     String
   state    String
-  number   BigInt
+  number   Int
   Immobile Immobile?
 }
 
@@ -50,6 +50,7 @@ model Immobile {
   pools           Int
   id_category     Int
   id_type         Int
+  status          String   @default(dbgenerated("D")) @db.Char()
   created_at      DateTime @default(now())
   updated_at      DateTime @default(now())
   address         Address  @relation(fields: [address_id], references: [id])

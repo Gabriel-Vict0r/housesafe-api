@@ -8,6 +8,7 @@ export class GetRecentsImmobileService {
         try {
             const recents = await prisma.immobile.findMany({
                 select: {
+                    id: true,
                     title: true,
                     description: true,
                     bathroom: true,

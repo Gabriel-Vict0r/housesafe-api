@@ -10,6 +10,7 @@ import { CreateImageController } from "./controllers/CreateImageController";
 import { UpdateImmobileController } from "./controllers/UpdateImmobileController";
 import { UpdateBrokerController } from "./controllers/UpdateBrokerController";
 import { GetRecentsImmobileController } from "./controllers/GetRecentsImmobileController";
+import { GetImmobileController } from "./controllers/GetImmobileController";
 const routes = Router()
 const upload = multer(multerConfig)
 
@@ -39,4 +40,5 @@ routes.put('/broker/:id',
 routes.get('/recents-immobile',
     new GetRecentsImmobileController().handle
 )
+routes.get('/immobile/:id', new GetImmobileController().handle);
 export { routes }

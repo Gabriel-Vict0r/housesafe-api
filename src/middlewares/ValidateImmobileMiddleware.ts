@@ -45,10 +45,10 @@ export const validateImmobileMiddleware = async (req: Request, res: Response, ne
     let { immobile } = req.body
     let { address } = req.body
     console.log(immobile);
-    // if (typeof immobile !== 'string') {
-    //     address = JSON.parse(address)
-    //     immobile = JSON.parse(immobile)
-    // }
+    if (typeof immobile !== 'object') {
+        address = JSON.parse(address)
+        immobile = JSON.parse(immobile)
+    }
     const validateImobile: Immobile = {
         street: address.street,
         district: address.district,
