@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { CreateImageService } from "../services/CreateImageService";
-import { Images } from "@prisma/client";
+import { Images } from "../prisma/generated/client";
 
 
 type IArrayOfImages = Images[]
