@@ -1,4 +1,4 @@
-import { Address, Immobile, PrismaClient } from "@prisma/client";
+import { Address, Immobile, PrismaClient } from "../prisma/generated/client";
 import { IAddress, IImmobile } from "../interfaces/interfaces";
 
 

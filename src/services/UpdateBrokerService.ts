@@ -1,4 +1,4 @@
-import { Broker, PrismaClient } from "@prisma/client";
+import { Broker, PrismaClient } from "../prisma/generated/client";
 
 
 

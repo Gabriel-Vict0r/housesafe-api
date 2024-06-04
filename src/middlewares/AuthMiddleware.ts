@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from "../prisma/generated/client";;
 import { NextFunction, Request, Response } from "express";
 import jwt from 'jsonwebtoken'
 

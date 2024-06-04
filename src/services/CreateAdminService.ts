@@ -1,4 +1,4 @@
-import { Admin, PrismaClient } from "@prisma/client";
+import { Admin, PrismaClient } from "../prisma/generated/client";
 import bcrypt from 'bcrypt'
 export class CreateAdminService {
     async execute(admin: Admin) {

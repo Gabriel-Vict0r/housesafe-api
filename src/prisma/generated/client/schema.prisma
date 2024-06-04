@@ -1,0 +1,83 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+  output          = "./generated/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id       Int    @id @default(autoincrement())
+  name     String
+  email    String @unique
+  password String
+}
+
+model Broker {
+  id       Int        @id @default(autoincrement())
+  name     String
+  phone    String
+  email    String
+  image    String
+  Immobile Immobile[]
+}
+
+model Address {
+  id       Int       @id @default(autoincrement())
+  street   String
+  district String
+  city     String
+  state    String
+  number   Int
+  Immobile Immobile?
+}
+
+model Immobile {
+  id              Int      @id @default(autoincrement())
+  id_broker       Int
+  title           String
+  description     String
+  address_id      Int      @unique
+  price           Decimal  @db.Decimal(12, 3)
+  additional      String   @db.VarChar(255)
+  size            Float
+  bathroom        Int
+  vehicle_vacany  Int
+  bedrooms        Int
+  recreation_area Int
+  pools           Int
+  id_category     Int
+  id_type         Int
+  status          String   @default(dbgenerated("D")) @db.Char()
+  created_at      DateTime @default(now())
+  updated_at      DateTime @default(now())
+  address         Address  @relation(fields: [address_id], references: [id])
+  broker          Broker   @relation(fields: [id_broker], references: [id])
+  category        Category @relation(fields: [id_category], references: [id])
+  type            Type     @relation(fields: [id_type], references: [id])
+  Images          Images[]
+}
+
+model Type {
+  id          Int        @id @default(autoincrement())
+  description String
+  Immobile    Immobile[]
+}
+
+model Category {
+  id          Int        @id @default(autoincrement())
+  description String
+  Immobile    Immobile[]
+}
+
+model Images {
+  id Int @id @default(autoincrement())
+
+  id_immobile Int
+  url         String
+
+  immobile Immobile @relation(fields: [id_immobile], references: [id])
+}
