@@ -1,7 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 
 
-
 export class GetImmobileService {
     async execute(id: number) {
         const prisma = new PrismaClient();
