@@ -14,17 +14,24 @@ export class LoginAdminController {
                 email: email
             }
         });
-        if (admin instanceof Error) {
-            return res.status(400).send('O e-mail informado é inválido')
+        if (!admin) {
+            return res.status(400).json({ message: 'O e-mail informado é inválido. ' })
         }
         const verifyPass = await bcrypt.compare(password, admin!.password);
 
         if (!verifyPass) {
-            return res.status(400).send('A senha informada é inválida.')
+            return res.status(400).json({ message: 'A senha informada é inválida. ' })
         }
 
         const token = jwt.sign({ id: admin!.id }, process.env.JWT_PASS ?? '', {
             expiresIn: '8h'
+        })
+
+        const { password: _, ...adminLogin } = admin;
+
+        return res.status(200).json({
+            user: adminLogin,
+            token: token
         })
     }
 }
