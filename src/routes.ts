@@ -64,7 +64,7 @@ routes.put('/update-immobile/:id',
 );
 
 routes.patch('/disable-immobile/:id',
-    //new AuthMiddleware().handle,
+    new AuthMiddleware().handle,
     new DisableImmobileController().handle
 )
 routes.get('/recents-immobile',
