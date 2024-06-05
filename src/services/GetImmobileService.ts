@@ -6,9 +6,12 @@ export class GetImmobileService {
         const prisma = new PrismaClient();
 
         try {
-            let immobile = await prisma.immobile.findFirst({
+            let immobile = await prisma.immobile.findUnique({
                 where: {
-                    id: id
+                    id: id,
+                    NOT: {
+                        status: 'X'
+                    }
                 },
                 include: {
                     address: true,

@@ -22,16 +22,19 @@ model Broker {
   phone    String
   email    String
   image    String
+  status   String     @default(dbgenerated("'N'")) @db.Char()
   Immobile Immobile[]
 }
 
 model Address {
-  id       Int       @id @default(autoincrement())
+  id       Int    @id @default(autoincrement())
   street   String
   district String
   city     String
   state    String
   number   Int
+  status   String @default(dbgenerated("'N'")) @db.Char()
+
   Immobile Immobile?
 }
 
@@ -51,7 +54,7 @@ model Immobile {
   pools           Int
   id_category     Int
   id_type         Int
-  status          String   @default(dbgenerated("D")) @db.Char()
+  status          String   @default(dbgenerated("'D'")) @db.Char()
   created_at      DateTime @default(now())
   updated_at      DateTime @default(now())
   address         Address  @relation(fields: [address_id], references: [id])
@@ -65,12 +68,14 @@ model Type {
   id          Int        @id @default(autoincrement())
   description String
   Immobile    Immobile[]
+  status      String     @default(dbgenerated("'N'")) @db.Char()
 }
 
 model Category {
   id          Int        @id @default(autoincrement())
   description String
   Immobile    Immobile[]
+  status      String     @default(dbgenerated("'N'")) @db.Char()
 }
 
 model Images {
@@ -78,6 +83,5 @@ model Images {
 
   id_immobile Int
   url         String
-
-  immobile Immobile @relation(fields: [id_immobile], references: [id])
+  immobile    Immobile @relation(fields: [id_immobile], references: [id])
 }

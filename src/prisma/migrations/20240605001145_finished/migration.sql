@@ -1,0 +1,19 @@
+-- AlterTable
+ALTER TABLE "Address" ALTER COLUMN "status" SET DEFAULT 'N',
+ALTER COLUMN "status" SET DATA TYPE CHAR;
+
+-- AlterTable
+ALTER TABLE "Broker" ALTER COLUMN "status" SET DEFAULT 'N',
+ALTER COLUMN "status" SET DATA TYPE CHAR;
+
+-- AlterTable
+ALTER TABLE "Category" ALTER COLUMN "status" SET DEFAULT 'N',
+ALTER COLUMN "status" SET DATA TYPE CHAR;
+
+-- AlterTable
+ALTER TABLE "Immobile" ALTER COLUMN "status" SET DEFAULT 'D',
+ALTER COLUMN "status" SET DATA TYPE CHAR;
+
+-- AlterTable
+ALTER TABLE "Type" ALTER COLUMN "status" SET DEFAULT 'N',
+ALTER COLUMN "status" SET DATA TYPE CHAR;

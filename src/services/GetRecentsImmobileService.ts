@@ -7,6 +7,11 @@ export class GetRecentsImmobileService {
         const prisma = new PrismaClient();
         try {
             const recents = await prisma.immobile.findMany({
+                where: {
+                    NOT: {
+                        status: 'X'
+                    }
+                },
                 select: {
                     id: true,
                     title: true,

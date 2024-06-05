@@ -2468,6 +2468,7 @@ export namespace Prisma {
     phone: string | null
     email: string | null
     image: string | null
+    status: string | null
   }
 
   export type BrokerMaxAggregateOutputType = {
@@ -2476,6 +2477,7 @@ export namespace Prisma {
     phone: string | null
     email: string | null
     image: string | null
+    status: string | null
   }
 
   export type BrokerCountAggregateOutputType = {
@@ -2484,6 +2486,7 @@ export namespace Prisma {
     phone: number
     email: number
     image: number
+    status: number
     _all: number
   }
 
@@ -2502,6 +2505,7 @@ export namespace Prisma {
     phone?: true
     email?: true
     image?: true
+    status?: true
   }
 
   export type BrokerMaxAggregateInputType = {
@@ -2510,6 +2514,7 @@ export namespace Prisma {
     phone?: true
     email?: true
     image?: true
+    status?: true
   }
 
   export type BrokerCountAggregateInputType = {
@@ -2518,6 +2523,7 @@ export namespace Prisma {
     phone?: true
     email?: true
     image?: true
+    status?: true
     _all?: true
   }
 
@@ -2613,6 +2619,7 @@ export namespace Prisma {
     phone: string
     email: string
     image: string
+    status: string
     _count: BrokerCountAggregateOutputType | null
     _avg: BrokerAvgAggregateOutputType | null
     _sum: BrokerSumAggregateOutputType | null
@@ -2640,6 +2647,7 @@ export namespace Prisma {
     phone?: boolean
     email?: boolean
     image?: boolean
+    status?: boolean
     Immobile?: boolean | Broker$ImmobileArgs<ExtArgs>
     _count?: boolean | BrokerCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["broker"]>
@@ -2650,6 +2658,7 @@ export namespace Prisma {
     phone?: boolean
     email?: boolean
     image?: boolean
+    status?: boolean
   }
 
 
@@ -2670,6 +2679,7 @@ export namespace Prisma {
       phone: string
       email: string
       image: string
+      status: string
     }, ExtArgs["result"]["broker"]>
     composites: {}
   }
@@ -3096,6 +3106,7 @@ export namespace Prisma {
     readonly phone: FieldRef<"Broker", 'String'>
     readonly email: FieldRef<"Broker", 'String'>
     readonly image: FieldRef<"Broker", 'String'>
+    readonly status: FieldRef<"Broker", 'String'>
   }
     
 
@@ -3477,6 +3488,7 @@ export namespace Prisma {
     city: string | null
     state: string | null
     number: number | null
+    status: string | null
   }
 
   export type AddressMaxAggregateOutputType = {
@@ -3486,6 +3498,7 @@ export namespace Prisma {
     city: string | null
     state: string | null
     number: number | null
+    status: string | null
   }
 
   export type AddressCountAggregateOutputType = {
@@ -3495,6 +3508,7 @@ export namespace Prisma {
     city: number
     state: number
     number: number
+    status: number
     _all: number
   }
 
@@ -3516,6 +3530,7 @@ export namespace Prisma {
     city?: true
     state?: true
     number?: true
+    status?: true
   }
 
   export type AddressMaxAggregateInputType = {
@@ -3525,6 +3540,7 @@ export namespace Prisma {
     city?: true
     state?: true
     number?: true
+    status?: true
   }
 
   export type AddressCountAggregateInputType = {
@@ -3534,6 +3550,7 @@ export namespace Prisma {
     city?: true
     state?: true
     number?: true
+    status?: true
     _all?: true
   }
 
@@ -3630,6 +3647,7 @@ export namespace Prisma {
     city: string
     state: string
     number: number
+    status: string
     _count: AddressCountAggregateOutputType | null
     _avg: AddressAvgAggregateOutputType | null
     _sum: AddressSumAggregateOutputType | null
@@ -3658,6 +3676,7 @@ export namespace Prisma {
     city?: boolean
     state?: boolean
     number?: boolean
+    status?: boolean
     Immobile?: boolean | Address$ImmobileArgs<ExtArgs>
   }, ExtArgs["result"]["address"]>
 
@@ -3668,6 +3687,7 @@ export namespace Prisma {
     city?: boolean
     state?: boolean
     number?: boolean
+    status?: boolean
   }
 
 
@@ -3688,6 +3708,7 @@ export namespace Prisma {
       city: string
       state: string
       number: number
+      status: string
     }, ExtArgs["result"]["address"]>
     composites: {}
   }
@@ -4115,6 +4136,7 @@ export namespace Prisma {
     readonly city: FieldRef<"Address", 'String'>
     readonly state: FieldRef<"Address", 'String'>
     readonly number: FieldRef<"Address", 'Int'>
+    readonly status: FieldRef<"Address", 'String'>
   }
     
 
@@ -5698,16 +5720,19 @@ export namespace Prisma {
   export type TypeMinAggregateOutputType = {
     id: number | null
     description: string | null
+    status: string | null
   }
 
   export type TypeMaxAggregateOutputType = {
     id: number | null
     description: string | null
+    status: string | null
   }
 
   export type TypeCountAggregateOutputType = {
     id: number
     description: number
+    status: number
     _all: number
   }
 
@@ -5723,16 +5748,19 @@ export namespace Prisma {
   export type TypeMinAggregateInputType = {
     id?: true
     description?: true
+    status?: true
   }
 
   export type TypeMaxAggregateInputType = {
     id?: true
     description?: true
+    status?: true
   }
 
   export type TypeCountAggregateInputType = {
     id?: true
     description?: true
+    status?: true
     _all?: true
   }
 
@@ -5825,6 +5853,7 @@ export namespace Prisma {
   export type TypeGroupByOutputType = {
     id: number
     description: string
+    status: string
     _count: TypeCountAggregateOutputType | null
     _avg: TypeAvgAggregateOutputType | null
     _sum: TypeSumAggregateOutputType | null
@@ -5849,6 +5878,7 @@ export namespace Prisma {
   export type TypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     description?: boolean
+    status?: boolean
     Immobile?: boolean | Type$ImmobileArgs<ExtArgs>
     _count?: boolean | TypeCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["type"]>
@@ -5856,6 +5886,7 @@ export namespace Prisma {
   export type TypeSelectScalar = {
     id?: boolean
     description?: boolean
+    status?: boolean
   }
 
 
@@ -5873,6 +5904,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       description: string
+      status: string
     }, ExtArgs["result"]["type"]>
     composites: {}
   }
@@ -6296,6 +6328,7 @@ export namespace Prisma {
   interface TypeFieldRefs {
     readonly id: FieldRef<"Type", 'Int'>
     readonly description: FieldRef<"Type", 'String'>
+    readonly status: FieldRef<"Type", 'String'>
   }
     
 
@@ -6671,16 +6704,19 @@ export namespace Prisma {
   export type CategoryMinAggregateOutputType = {
     id: number | null
     description: string | null
+    status: string | null
   }
 
   export type CategoryMaxAggregateOutputType = {
     id: number | null
     description: string | null
+    status: string | null
   }
 
   export type CategoryCountAggregateOutputType = {
     id: number
     description: number
+    status: number
     _all: number
   }
 
@@ -6696,16 +6732,19 @@ export namespace Prisma {
   export type CategoryMinAggregateInputType = {
     id?: true
     description?: true
+    status?: true
   }
 
   export type CategoryMaxAggregateInputType = {
     id?: true
     description?: true
+    status?: true
   }
 
   export type CategoryCountAggregateInputType = {
     id?: true
     description?: true
+    status?: true
     _all?: true
   }
 
@@ -6798,6 +6837,7 @@ export namespace Prisma {
   export type CategoryGroupByOutputType = {
     id: number
     description: string
+    status: string
     _count: CategoryCountAggregateOutputType | null
     _avg: CategoryAvgAggregateOutputType | null
     _sum: CategorySumAggregateOutputType | null
@@ -6822,6 +6862,7 @@ export namespace Prisma {
   export type CategorySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     description?: boolean
+    status?: boolean
     Immobile?: boolean | Category$ImmobileArgs<ExtArgs>
     _count?: boolean | CategoryCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["category"]>
@@ -6829,6 +6870,7 @@ export namespace Prisma {
   export type CategorySelectScalar = {
     id?: boolean
     description?: boolean
+    status?: boolean
   }
 
 
@@ -6846,6 +6888,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       description: string
+      status: string
     }, ExtArgs["result"]["category"]>
     composites: {}
   }
@@ -7269,6 +7312,7 @@ export namespace Prisma {
   interface CategoryFieldRefs {
     readonly id: FieldRef<"Category", 'Int'>
     readonly description: FieldRef<"Category", 'String'>
+    readonly status: FieldRef<"Category", 'String'>
   }
     
 
@@ -8616,7 +8660,8 @@ export namespace Prisma {
     name: 'name',
     phone: 'phone',
     email: 'email',
-    image: 'image'
+    image: 'image',
+    status: 'status'
   };
 
   export type BrokerScalarFieldEnum = (typeof BrokerScalarFieldEnum)[keyof typeof BrokerScalarFieldEnum]
@@ -8628,7 +8673,8 @@ export namespace Prisma {
     district: 'district',
     city: 'city',
     state: 'state',
-    number: 'number'
+    number: 'number',
+    status: 'status'
   };
 
   export type AddressScalarFieldEnum = (typeof AddressScalarFieldEnum)[keyof typeof AddressScalarFieldEnum]
@@ -8660,7 +8706,8 @@ export namespace Prisma {
 
   export const TypeScalarFieldEnum: {
     id: 'id',
-    description: 'description'
+    description: 'description',
+    status: 'status'
   };
 
   export type TypeScalarFieldEnum = (typeof TypeScalarFieldEnum)[keyof typeof TypeScalarFieldEnum]
@@ -8668,7 +8715,8 @@ export namespace Prisma {
 
   export const CategoryScalarFieldEnum: {
     id: 'id',
-    description: 'description'
+    description: 'description',
+    status: 'status'
   };
 
   export type CategoryScalarFieldEnum = (typeof CategoryScalarFieldEnum)[keyof typeof CategoryScalarFieldEnum]
@@ -8835,6 +8883,7 @@ export namespace Prisma {
     phone?: StringFilter<"Broker"> | string
     email?: StringFilter<"Broker"> | string
     image?: StringFilter<"Broker"> | string
+    status?: StringFilter<"Broker"> | string
     Immobile?: ImmobileListRelationFilter
   }
 
@@ -8844,6 +8893,7 @@ export namespace Prisma {
     phone?: SortOrder
     email?: SortOrder
     image?: SortOrder
+    status?: SortOrder
     Immobile?: ImmobileOrderByRelationAggregateInput
   }
 
@@ -8856,6 +8906,7 @@ export namespace Prisma {
     phone?: StringFilter<"Broker"> | string
     email?: StringFilter<"Broker"> | string
     image?: StringFilter<"Broker"> | string
+    status?: StringFilter<"Broker"> | string
     Immobile?: ImmobileListRelationFilter
   }, "id">
 
@@ -8865,6 +8916,7 @@ export namespace Prisma {
     phone?: SortOrder
     email?: SortOrder
     image?: SortOrder
+    status?: SortOrder
     _count?: BrokerCountOrderByAggregateInput
     _avg?: BrokerAvgOrderByAggregateInput
     _max?: BrokerMaxOrderByAggregateInput
@@ -8881,6 +8933,7 @@ export namespace Prisma {
     phone?: StringWithAggregatesFilter<"Broker"> | string
     email?: StringWithAggregatesFilter<"Broker"> | string
     image?: StringWithAggregatesFilter<"Broker"> | string
+    status?: StringWithAggregatesFilter<"Broker"> | string
   }
 
   export type AddressWhereInput = {
@@ -8893,6 +8946,7 @@ export namespace Prisma {
     city?: StringFilter<"Address"> | string
     state?: StringFilter<"Address"> | string
     number?: IntFilter<"Address"> | number
+    status?: StringFilter<"Address"> | string
     Immobile?: XOR<ImmobileNullableRelationFilter, ImmobileWhereInput> | null
   }
 
@@ -8903,6 +8957,7 @@ export namespace Prisma {
     city?: SortOrder
     state?: SortOrder
     number?: SortOrder
+    status?: SortOrder
     Immobile?: ImmobileOrderByWithRelationInput
   }
 
@@ -8916,6 +8971,7 @@ export namespace Prisma {
     city?: StringFilter<"Address"> | string
     state?: StringFilter<"Address"> | string
     number?: IntFilter<"Address"> | number
+    status?: StringFilter<"Address"> | string
     Immobile?: XOR<ImmobileNullableRelationFilter, ImmobileWhereInput> | null
   }, "id">
 
@@ -8926,6 +8982,7 @@ export namespace Prisma {
     city?: SortOrder
     state?: SortOrder
     number?: SortOrder
+    status?: SortOrder
     _count?: AddressCountOrderByAggregateInput
     _avg?: AddressAvgOrderByAggregateInput
     _max?: AddressMaxOrderByAggregateInput
@@ -8943,6 +9000,7 @@ export namespace Prisma {
     city?: StringWithAggregatesFilter<"Address"> | string
     state?: StringWithAggregatesFilter<"Address"> | string
     number?: IntWithAggregatesFilter<"Address"> | number
+    status?: StringWithAggregatesFilter<"Address"> | string
   }
 
   export type ImmobileWhereInput = {
@@ -9085,12 +9143,14 @@ export namespace Prisma {
     NOT?: TypeWhereInput | TypeWhereInput[]
     id?: IntFilter<"Type"> | number
     description?: StringFilter<"Type"> | string
+    status?: StringFilter<"Type"> | string
     Immobile?: ImmobileListRelationFilter
   }
 
   export type TypeOrderByWithRelationInput = {
     id?: SortOrder
     description?: SortOrder
+    status?: SortOrder
     Immobile?: ImmobileOrderByRelationAggregateInput
   }
 
@@ -9100,12 +9160,14 @@ export namespace Prisma {
     OR?: TypeWhereInput[]
     NOT?: TypeWhereInput | TypeWhereInput[]
     description?: StringFilter<"Type"> | string
+    status?: StringFilter<"Type"> | string
     Immobile?: ImmobileListRelationFilter
   }, "id">
 
   export type TypeOrderByWithAggregationInput = {
     id?: SortOrder
     description?: SortOrder
+    status?: SortOrder
     _count?: TypeCountOrderByAggregateInput
     _avg?: TypeAvgOrderByAggregateInput
     _max?: TypeMaxOrderByAggregateInput
@@ -9119,6 +9181,7 @@ export namespace Prisma {
     NOT?: TypeScalarWhereWithAggregatesInput | TypeScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Type"> | number
     description?: StringWithAggregatesFilter<"Type"> | string
+    status?: StringWithAggregatesFilter<"Type"> | string
   }
 
   export type CategoryWhereInput = {
@@ -9127,12 +9190,14 @@ export namespace Prisma {
     NOT?: CategoryWhereInput | CategoryWhereInput[]
     id?: IntFilter<"Category"> | number
     description?: StringFilter<"Category"> | string
+    status?: StringFilter<"Category"> | string
     Immobile?: ImmobileListRelationFilter
   }
 
   export type CategoryOrderByWithRelationInput = {
     id?: SortOrder
     description?: SortOrder
+    status?: SortOrder
     Immobile?: ImmobileOrderByRelationAggregateInput
   }
 
@@ -9142,12 +9207,14 @@ export namespace Prisma {
     OR?: CategoryWhereInput[]
     NOT?: CategoryWhereInput | CategoryWhereInput[]
     description?: StringFilter<"Category"> | string
+    status?: StringFilter<"Category"> | string
     Immobile?: ImmobileListRelationFilter
   }, "id">
 
   export type CategoryOrderByWithAggregationInput = {
     id?: SortOrder
     description?: SortOrder
+    status?: SortOrder
     _count?: CategoryCountOrderByAggregateInput
     _avg?: CategoryAvgOrderByAggregateInput
     _max?: CategoryMaxOrderByAggregateInput
@@ -9161,6 +9228,7 @@ export namespace Prisma {
     NOT?: CategoryScalarWhereWithAggregatesInput | CategoryScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Category"> | number
     description?: StringWithAggregatesFilter<"Category"> | string
+    status?: StringWithAggregatesFilter<"Category"> | string
   }
 
   export type ImagesWhereInput = {
@@ -9261,6 +9329,7 @@ export namespace Prisma {
     phone: string
     email: string
     image: string
+    status?: string
     Immobile?: ImmobileCreateNestedManyWithoutBrokerInput
   }
 
@@ -9270,6 +9339,7 @@ export namespace Prisma {
     phone: string
     email: string
     image: string
+    status?: string
     Immobile?: ImmobileUncheckedCreateNestedManyWithoutBrokerInput
   }
 
@@ -9278,6 +9348,7 @@ export namespace Prisma {
     phone?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     image?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     Immobile?: ImmobileUpdateManyWithoutBrokerNestedInput
   }
 
@@ -9287,6 +9358,7 @@ export namespace Prisma {
     phone?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     image?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     Immobile?: ImmobileUncheckedUpdateManyWithoutBrokerNestedInput
   }
 
@@ -9296,6 +9368,7 @@ export namespace Prisma {
     phone: string
     email: string
     image: string
+    status?: string
   }
 
   export type BrokerUpdateManyMutationInput = {
@@ -9303,6 +9376,7 @@ export namespace Prisma {
     phone?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     image?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
   }
 
   export type BrokerUncheckedUpdateManyInput = {
@@ -9311,6 +9385,7 @@ export namespace Prisma {
     phone?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     image?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
   }
 
   export type AddressCreateInput = {
@@ -9319,6 +9394,7 @@ export namespace Prisma {
     city: string
     state: string
     number: number
+    status?: string
     Immobile?: ImmobileCreateNestedOneWithoutAddressInput
   }
 
@@ -9329,6 +9405,7 @@ export namespace Prisma {
     city: string
     state: string
     number: number
+    status?: string
     Immobile?: ImmobileUncheckedCreateNestedOneWithoutAddressInput
   }
 
@@ -9338,6 +9415,7 @@ export namespace Prisma {
     city?: StringFieldUpdateOperationsInput | string
     state?: StringFieldUpdateOperationsInput | string
     number?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
     Immobile?: ImmobileUpdateOneWithoutAddressNestedInput
   }
 
@@ -9348,6 +9426,7 @@ export namespace Prisma {
     city?: StringFieldUpdateOperationsInput | string
     state?: StringFieldUpdateOperationsInput | string
     number?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
     Immobile?: ImmobileUncheckedUpdateOneWithoutAddressNestedInput
   }
 
@@ -9358,6 +9437,7 @@ export namespace Prisma {
     city: string
     state: string
     number: number
+    status?: string
   }
 
   export type AddressUpdateManyMutationInput = {
@@ -9366,6 +9446,7 @@ export namespace Prisma {
     city?: StringFieldUpdateOperationsInput | string
     state?: StringFieldUpdateOperationsInput | string
     number?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
   }
 
   export type AddressUncheckedUpdateManyInput = {
@@ -9375,6 +9456,7 @@ export namespace Prisma {
     city?: StringFieldUpdateOperationsInput | string
     state?: StringFieldUpdateOperationsInput | string
     number?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
   }
 
   export type ImmobileCreateInput = {
@@ -9523,74 +9605,88 @@ export namespace Prisma {
 
   export type TypeCreateInput = {
     description: string
+    status?: string
     Immobile?: ImmobileCreateNestedManyWithoutTypeInput
   }
 
   export type TypeUncheckedCreateInput = {
     id?: number
     description: string
+    status?: string
     Immobile?: ImmobileUncheckedCreateNestedManyWithoutTypeInput
   }
 
   export type TypeUpdateInput = {
     description?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     Immobile?: ImmobileUpdateManyWithoutTypeNestedInput
   }
 
   export type TypeUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     description?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     Immobile?: ImmobileUncheckedUpdateManyWithoutTypeNestedInput
   }
 
   export type TypeCreateManyInput = {
     id?: number
     description: string
+    status?: string
   }
 
   export type TypeUpdateManyMutationInput = {
     description?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
   }
 
   export type TypeUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     description?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
   }
 
   export type CategoryCreateInput = {
     description: string
+    status?: string
     Immobile?: ImmobileCreateNestedManyWithoutCategoryInput
   }
 
   export type CategoryUncheckedCreateInput = {
     id?: number
     description: string
+    status?: string
     Immobile?: ImmobileUncheckedCreateNestedManyWithoutCategoryInput
   }
 
   export type CategoryUpdateInput = {
     description?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     Immobile?: ImmobileUpdateManyWithoutCategoryNestedInput
   }
 
   export type CategoryUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     description?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
     Immobile?: ImmobileUncheckedUpdateManyWithoutCategoryNestedInput
   }
 
   export type CategoryCreateManyInput = {
     id?: number
     description: string
+    status?: string
   }
 
   export type CategoryUpdateManyMutationInput = {
     description?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
   }
 
   export type CategoryUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     description?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
   }
 
   export type ImagesCreateInput = {
@@ -9736,6 +9832,7 @@ export namespace Prisma {
     phone?: SortOrder
     email?: SortOrder
     image?: SortOrder
+    status?: SortOrder
   }
 
   export type BrokerAvgOrderByAggregateInput = {
@@ -9748,6 +9845,7 @@ export namespace Prisma {
     phone?: SortOrder
     email?: SortOrder
     image?: SortOrder
+    status?: SortOrder
   }
 
   export type BrokerMinOrderByAggregateInput = {
@@ -9756,6 +9854,7 @@ export namespace Prisma {
     phone?: SortOrder
     email?: SortOrder
     image?: SortOrder
+    status?: SortOrder
   }
 
   export type BrokerSumOrderByAggregateInput = {
@@ -9774,6 +9873,7 @@ export namespace Prisma {
     city?: SortOrder
     state?: SortOrder
     number?: SortOrder
+    status?: SortOrder
   }
 
   export type AddressAvgOrderByAggregateInput = {
@@ -9788,6 +9888,7 @@ export namespace Prisma {
     city?: SortOrder
     state?: SortOrder
     number?: SortOrder
+    status?: SortOrder
   }
 
   export type AddressMinOrderByAggregateInput = {
@@ -9797,6 +9898,7 @@ export namespace Prisma {
     city?: SortOrder
     state?: SortOrder
     number?: SortOrder
+    status?: SortOrder
   }
 
   export type AddressSumOrderByAggregateInput = {
@@ -10009,6 +10111,7 @@ export namespace Prisma {
   export type TypeCountOrderByAggregateInput = {
     id?: SortOrder
     description?: SortOrder
+    status?: SortOrder
   }
 
   export type TypeAvgOrderByAggregateInput = {
@@ -10018,11 +10121,13 @@ export namespace Prisma {
   export type TypeMaxOrderByAggregateInput = {
     id?: SortOrder
     description?: SortOrder
+    status?: SortOrder
   }
 
   export type TypeMinOrderByAggregateInput = {
     id?: SortOrder
     description?: SortOrder
+    status?: SortOrder
   }
 
   export type TypeSumOrderByAggregateInput = {
@@ -10032,6 +10137,7 @@ export namespace Prisma {
   export type CategoryCountOrderByAggregateInput = {
     id?: SortOrder
     description?: SortOrder
+    status?: SortOrder
   }
 
   export type CategoryAvgOrderByAggregateInput = {
@@ -10041,11 +10147,13 @@ export namespace Prisma {
   export type CategoryMaxOrderByAggregateInput = {
     id?: SortOrder
     description?: SortOrder
+    status?: SortOrder
   }
 
   export type CategoryMinOrderByAggregateInput = {
     id?: SortOrder
     description?: SortOrder
+    status?: SortOrder
   }
 
   export type CategorySumOrderByAggregateInput = {
@@ -10719,6 +10827,7 @@ export namespace Prisma {
     city: string
     state: string
     number: number
+    status?: string
   }
 
   export type AddressUncheckedCreateWithoutImmobileInput = {
@@ -10728,6 +10837,7 @@ export namespace Prisma {
     city: string
     state: string
     number: number
+    status?: string
   }
 
   export type AddressCreateOrConnectWithoutImmobileInput = {
@@ -10740,6 +10850,7 @@ export namespace Prisma {
     phone: string
     email: string
     image: string
+    status?: string
   }
 
   export type BrokerUncheckedCreateWithoutImmobileInput = {
@@ -10748,6 +10859,7 @@ export namespace Prisma {
     phone: string
     email: string
     image: string
+    status?: string
   }
 
   export type BrokerCreateOrConnectWithoutImmobileInput = {
@@ -10757,11 +10869,13 @@ export namespace Prisma {
 
   export type CategoryCreateWithoutImmobileInput = {
     description: string
+    status?: string
   }
 
   export type CategoryUncheckedCreateWithoutImmobileInput = {
     id?: number
     description: string
+    status?: string
   }
 
   export type CategoryCreateOrConnectWithoutImmobileInput = {
@@ -10771,11 +10885,13 @@ export namespace Prisma {
 
   export type TypeCreateWithoutImmobileInput = {
     description: string
+    status?: string
   }
 
   export type TypeUncheckedCreateWithoutImmobileInput = {
     id?: number
     description: string
+    status?: string
   }
 
   export type TypeCreateOrConnectWithoutImmobileInput = {
@@ -10819,6 +10935,7 @@ export namespace Prisma {
     city?: StringFieldUpdateOperationsInput | string
     state?: StringFieldUpdateOperationsInput | string
     number?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
   }
 
   export type AddressUncheckedUpdateWithoutImmobileInput = {
@@ -10828,6 +10945,7 @@ export namespace Prisma {
     city?: StringFieldUpdateOperationsInput | string
     state?: StringFieldUpdateOperationsInput | string
     number?: IntFieldUpdateOperationsInput | number
+    status?: StringFieldUpdateOperationsInput | string
   }
 
   export type BrokerUpsertWithoutImmobileInput = {
@@ -10846,6 +10964,7 @@ export namespace Prisma {
     phone?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     image?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
   }
 
   export type BrokerUncheckedUpdateWithoutImmobileInput = {
@@ -10854,6 +10973,7 @@ export namespace Prisma {
     phone?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     image?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
   }
 
   export type CategoryUpsertWithoutImmobileInput = {
@@ -10869,11 +10989,13 @@ export namespace Prisma {
 
   export type CategoryUpdateWithoutImmobileInput = {
     description?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
   }
 
   export type CategoryUncheckedUpdateWithoutImmobileInput = {
     id?: IntFieldUpdateOperationsInput | number
     description?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
   }
 
   export type TypeUpsertWithoutImmobileInput = {
@@ -10889,11 +11011,13 @@ export namespace Prisma {
 
   export type TypeUpdateWithoutImmobileInput = {
     description?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
   }
 
   export type TypeUncheckedUpdateWithoutImmobileInput = {
     id?: IntFieldUpdateOperationsInput | number
     description?: StringFieldUpdateOperationsInput | string
+    status?: StringFieldUpdateOperationsInput | string
   }
 
   export type ImagesUpsertWithWhereUniqueWithoutImmobileInput = {

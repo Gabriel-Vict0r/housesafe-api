@@ -131,7 +131,8 @@ exports.Prisma.BrokerScalarFieldEnum = {
   name: 'name',
   phone: 'phone',
   email: 'email',
-  image: 'image'
+  image: 'image',
+  status: 'status'
 };
 
 exports.Prisma.AddressScalarFieldEnum = {
@@ -140,7 +141,8 @@ exports.Prisma.AddressScalarFieldEnum = {
   district: 'district',
   city: 'city',
   state: 'state',
-  number: 'number'
+  number: 'number',
+  status: 'status'
 };
 
 exports.Prisma.ImmobileScalarFieldEnum = {
@@ -166,12 +168,14 @@ exports.Prisma.ImmobileScalarFieldEnum = {
 
 exports.Prisma.TypeScalarFieldEnum = {
   id: 'id',
-  description: 'description'
+  description: 'description',
+  status: 'status'
 };
 
 exports.Prisma.CategoryScalarFieldEnum = {
   id: 'id',
-  description: 'description'
+  description: 'description',
+  status: 'status'
 };
 
 exports.Prisma.ImagesScalarFieldEnum = {

@@ -1,3 +1,2 @@
 -- AlterTable
-ALTER TABLE "Immobile" ALTER COLUMN "status" SET DEFAULT D,
-ALTER COLUMN "status" SET DATA TYPE CHAR;
+

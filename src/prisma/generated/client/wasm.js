@@ -99,7 +99,8 @@ exports.Prisma.BrokerScalarFieldEnum = {
   name: 'name',
   phone: 'phone',
   email: 'email',
-  image: 'image'
+  image: 'image',
+  status: 'status'
 };
 
 exports.Prisma.AddressScalarFieldEnum = {
@@ -108,7 +109,8 @@ exports.Prisma.AddressScalarFieldEnum = {
   district: 'district',
   city: 'city',
   state: 'state',
-  number: 'number'
+  number: 'number',
+  status: 'status'
 };
 
 exports.Prisma.ImmobileScalarFieldEnum = {
@@ -134,12 +136,14 @@ exports.Prisma.ImmobileScalarFieldEnum = {
 
 exports.Prisma.TypeScalarFieldEnum = {
   id: 'id',
-  description: 'description'
+  description: 'description',
+  status: 'status'
 };
 
 exports.Prisma.CategoryScalarFieldEnum = {
   id: 'id',
-  description: 'description'
+  description: 'description',
+  status: 'status'
 };
 
 exports.Prisma.ImagesScalarFieldEnum = {
@@ -179,7 +183,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\dev\\Documents\\housesafe-api\\src\\prisma\\generated\\client",
+      "value": "C:\\Users\\Gabriel Victor\\Documents\\housesafe-api\\src\\prisma\\generated\\client",
       "fromEnvVar": null
     },
     "config": {
@@ -198,7 +202,7 @@ const config = {
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": "../../../../.env",
+    "rootEnvPath": null,
     "schemaEnvPath": "../../../../.env"
   },
   "relativePath": "../..",
@@ -217,13 +221,13 @@ const config = {
       }
     }
   },
-  "inlineSchema": "generator client {\n  provider        = \"prisma-client-js\"\n  previewFeatures = [\"driverAdapters\"]\n  output          = \"./generated/client\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Admin {\n  id       Int    @id @default(autoincrement())\n  name     String\n  email    String @unique\n  password String\n}\n\nmodel Broker {\n  id       Int        @id @default(autoincrement())\n  name     String\n  phone    String\n  email    String\n  image    String\n  Immobile Immobile[]\n}\n\nmodel Address {\n  id       Int       @id @default(autoincrement())\n  street   String\n  district String\n  city     String\n  state    String\n  number   Int\n  Immobile Immobile?\n}\n\nmodel Immobile {\n  id              Int      @id @default(autoincrement())\n  id_broker       Int\n  title           String\n  description     String\n  address_id      Int      @unique\n  price           Decimal  @db.Decimal(12, 3)\n  additional      String   @db.VarChar(255)\n  size            Float\n  bathroom        Int\n  vehicle_vacany  Int\n  bedrooms        Int\n  recreation_area Int\n  pools           Int\n  id_category     Int\n  id_type         Int\n  status          String   @default(dbgenerated(\"D\")) @db.Char()\n  created_at      DateTime @default(now())\n  updated_at      DateTime @default(now())\n  address         Address  @relation(fields: [address_id], references: [id])\n  broker          Broker   @relation(fields: [id_broker], references: [id])\n  category        Category @relation(fields: [id_category], references: [id])\n  type            Type     @relation(fields: [id_type], references: [id])\n  Images          Images[]\n}\n\nmodel Type {\n  id          Int        @id @default(autoincrement())\n  description String\n  Immobile    Immobile[]\n}\n\nmodel Category {\n  id          Int        @id @default(autoincrement())\n  description String\n  Immobile    Immobile[]\n}\n\nmodel Images {\n  id Int @id @default(autoincrement())\n\n  id_immobile Int\n  url         String\n\n  immobile Immobile @relation(fields: [id_immobile], references: [id])\n}\n",
-  "inlineSchemaHash": "729d8c46c43165752fef7af8d20f08c1ee340dfb656c8fd3a1c1bd2eb3a17b99",
+  "inlineSchema": "generator client {\n  provider        = \"prisma-client-js\"\n  previewFeatures = [\"driverAdapters\"]\n  output          = \"./generated/client\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Admin {\n  id       Int    @id @default(autoincrement())\n  name     String\n  email    String @unique\n  password String\n}\n\nmodel Broker {\n  id       Int        @id @default(autoincrement())\n  name     String\n  phone    String\n  email    String\n  image    String\n  status   String     @default(dbgenerated(\"'N'\")) @db.Char()\n  Immobile Immobile[]\n}\n\nmodel Address {\n  id       Int    @id @default(autoincrement())\n  street   String\n  district String\n  city     String\n  state    String\n  number   Int\n  status   String @default(dbgenerated(\"'N'\")) @db.Char()\n\n  Immobile Immobile?\n}\n\nmodel Immobile {\n  id              Int      @id @default(autoincrement())\n  id_broker       Int\n  title           String\n  description     String\n  address_id      Int      @unique\n  price           Decimal  @db.Decimal(12, 3)\n  additional      String   @db.VarChar(255)\n  size            Float\n  bathroom        Int\n  vehicle_vacany  Int\n  bedrooms        Int\n  recreation_area Int\n  pools           Int\n  id_category     Int\n  id_type         Int\n  status          String   @default(dbgenerated(\"'D'\")) @db.Char()\n  created_at      DateTime @default(now())\n  updated_at      DateTime @default(now())\n  address         Address  @relation(fields: [address_id], references: [id])\n  broker          Broker   @relation(fields: [id_broker], references: [id])\n  category        Category @relation(fields: [id_category], references: [id])\n  type            Type     @relation(fields: [id_type], references: [id])\n  Images          Images[]\n}\n\nmodel Type {\n  id          Int        @id @default(autoincrement())\n  description String\n  Immobile    Immobile[]\n  status      String     @default(dbgenerated(\"'N'\")) @db.Char()\n}\n\nmodel Category {\n  id          Int        @id @default(autoincrement())\n  description String\n  Immobile    Immobile[]\n  status      String     @default(dbgenerated(\"'N'\")) @db.Char()\n}\n\nmodel Images {\n  id Int @id @default(autoincrement())\n\n  id_immobile Int\n  url         String\n  immobile    Immobile @relation(fields: [id_immobile], references: [id])\n}\n",
+  "inlineSchemaHash": "0165967fc39168708368c20053adaddc6b7def4790db2ea52a258982923525ad",
   "copyEngine": true
 }
 config.dirname = '/'
 
-config.runtimeDataModel = JSON.parse("{\"models\":{\"Admin\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"email\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"password\",\"kind\":\"scalar\",\"type\":\"String\"}],\"dbName\":null},\"Broker\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"phone\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"email\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"image\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"Immobile\",\"kind\":\"object\",\"type\":\"Immobile\",\"relationName\":\"BrokerToImmobile\"}],\"dbName\":null},\"Address\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"street\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"district\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"city\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"state\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"number\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"Immobile\",\"kind\":\"object\",\"type\":\"Immobile\",\"relationName\":\"AddressToImmobile\"}],\"dbName\":null},\"Immobile\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"id_broker\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"title\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"description\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"address_id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"price\",\"kind\":\"scalar\",\"type\":\"Decimal\"},{\"name\":\"additional\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"size\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"bathroom\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"vehicle_vacany\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"bedrooms\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"recreation_area\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"pools\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"id_category\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"id_type\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"status\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"created_at\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updated_at\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"address\",\"kind\":\"object\",\"type\":\"Address\",\"relationName\":\"AddressToImmobile\"},{\"name\":\"broker\",\"kind\":\"object\",\"type\":\"Broker\",\"relationName\":\"BrokerToImmobile\"},{\"name\":\"category\",\"kind\":\"object\",\"type\":\"Category\",\"relationName\":\"CategoryToImmobile\"},{\"name\":\"type\",\"kind\":\"object\",\"type\":\"Type\",\"relationName\":\"ImmobileToType\"},{\"name\":\"Images\",\"kind\":\"object\",\"type\":\"Images\",\"relationName\":\"ImagesToImmobile\"}],\"dbName\":null},\"Type\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"description\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"Immobile\",\"kind\":\"object\",\"type\":\"Immobile\",\"relationName\":\"ImmobileToType\"}],\"dbName\":null},\"Category\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"description\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"Immobile\",\"kind\":\"object\",\"type\":\"Immobile\",\"relationName\":\"CategoryToImmobile\"}],\"dbName\":null},\"Images\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"id_immobile\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"url\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"immobile\",\"kind\":\"object\",\"type\":\"Immobile\",\"relationName\":\"ImagesToImmobile\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
+config.runtimeDataModel = JSON.parse("{\"models\":{\"Admin\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"email\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"password\",\"kind\":\"scalar\",\"type\":\"String\"}],\"dbName\":null},\"Broker\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"phone\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"email\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"image\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"status\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"Immobile\",\"kind\":\"object\",\"type\":\"Immobile\",\"relationName\":\"BrokerToImmobile\"}],\"dbName\":null},\"Address\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"street\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"district\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"city\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"state\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"number\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"status\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"Immobile\",\"kind\":\"object\",\"type\":\"Immobile\",\"relationName\":\"AddressToImmobile\"}],\"dbName\":null},\"Immobile\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"id_broker\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"title\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"description\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"address_id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"price\",\"kind\":\"scalar\",\"type\":\"Decimal\"},{\"name\":\"additional\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"size\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"bathroom\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"vehicle_vacany\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"bedrooms\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"recreation_area\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"pools\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"id_category\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"id_type\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"status\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"created_at\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updated_at\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"address\",\"kind\":\"object\",\"type\":\"Address\",\"relationName\":\"AddressToImmobile\"},{\"name\":\"broker\",\"kind\":\"object\",\"type\":\"Broker\",\"relationName\":\"BrokerToImmobile\"},{\"name\":\"category\",\"kind\":\"object\",\"type\":\"Category\",\"relationName\":\"CategoryToImmobile\"},{\"name\":\"type\",\"kind\":\"object\",\"type\":\"Type\",\"relationName\":\"ImmobileToType\"},{\"name\":\"Images\",\"kind\":\"object\",\"type\":\"Images\",\"relationName\":\"ImagesToImmobile\"}],\"dbName\":null},\"Type\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"description\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"Immobile\",\"kind\":\"object\",\"type\":\"Immobile\",\"relationName\":\"ImmobileToType\"},{\"name\":\"status\",\"kind\":\"scalar\",\"type\":\"String\"}],\"dbName\":null},\"Category\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"description\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"Immobile\",\"kind\":\"object\",\"type\":\"Immobile\",\"relationName\":\"CategoryToImmobile\"},{\"name\":\"status\",\"kind\":\"scalar\",\"type\":\"String\"}],\"dbName\":null},\"Images\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"id_immobile\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"url\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"immobile\",\"kind\":\"object\",\"type\":\"Immobile\",\"relationName\":\"ImagesToImmobile\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
 defineDmmfProperty(exports.Prisma, config.runtimeDataModel)
 config.engineWasm = {
   getRuntime: () => require('./query_engine_bg.js'),
