@@ -183,7 +183,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\Gabriel Victor\\Documents\\housesafe-api\\src\\prisma\\generated\\client",
+      "value": "C:\\Users\\dev\\Documents\\housesafe-api\\src\\prisma\\generated\\client",
       "fromEnvVar": null
     },
     "config": {
