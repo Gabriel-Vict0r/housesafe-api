@@ -1,8 +1,6 @@
 import { Request, Response } from "express";
 import { CreateAdminService } from "../services/CreateAdminService";
 
-
-
 export class CreateAdminController {
     async handle(req: Request, res: Response) {
         const admin = req.body

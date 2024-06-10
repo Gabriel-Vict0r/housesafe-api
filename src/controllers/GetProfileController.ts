@@ -3,10 +3,7 @@ import { Request, Response } from "express";
 import jwt from 'jsonwebtoken'
 
 
-type JwtPayload = {
-    id: number;
 
-}
 export class GetProfileController {
     async handle(req: Request, res: Response) {
         const { authorization } = req.headers

@@ -7,11 +7,13 @@ export class GetRecentsImmobileService {
         const prisma = new PrismaClient();
         try {
             const recents = await prisma.immobile.findMany({
+
                 where: {
                     NOT: {
                         status: 'X'
                     }
                 },
+
                 select: {
                     id: true,
                     title: true,
@@ -36,11 +38,20 @@ export class GetRecentsImmobileService {
                         select: {
                             description: true
                         }
+                    },
+                    Images: {
+                        select: {
+                            id: true,
+                            url: true
+                        },
                     }
+
                 },
+
                 orderBy: {
                     created_at: 'desc'
-                }
+                },
+
             })
             return recents;
         } catch (error: any) {

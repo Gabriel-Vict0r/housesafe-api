@@ -1,4 +1,4 @@
-import { PrismaClient } from "../prisma/generated/client";;
+import { PrismaClient } from "@prisma/client";
 import { NextFunction, Request, Response } from "express";
 import jwt from 'jsonwebtoken'
 
@@ -23,6 +23,8 @@ export class AuthMiddleware {
             res.status(401).json({ message: 'não autorizado' })
         }
         const { password: _, ...loggedAdmin } = admin!;
+
+        req.admin = loggedAdmin;
         next()
     }
 }
