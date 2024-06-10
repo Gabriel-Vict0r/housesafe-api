@@ -15,12 +15,12 @@ export class LoginAdminController {
             }
         });
         if (!admin) {
-            return res.status(400).json({ message: 'O e-mail informado é inválido. ' })
+            return res.status(400).json({ message: 'O e-mail informado é inválido. ', field: 'email' })
         }
         const verifyPass = await bcrypt.compare(password, admin!.password);
 
         if (!verifyPass) {
-            return res.status(400).json({ message: 'A senha informada é inválida. ' })
+            return res.status(400).json({ message: 'A senha informada é inválida. ', field: 'password' })
         }
 
         const token = jwt.sign({ id: admin!.id }, process.env.JWT_PASS ?? '', {
