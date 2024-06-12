@@ -17,6 +17,9 @@ import { GetProfileController } from "./controllers/GetProfileController";
 import { AuthMiddleware } from "./middlewares/AuthMiddleware";
 import { DisableBrokerController } from "./controllers/DisableBrokerController";
 import { DisableImmobileController } from "./controllers/DisableImmobileController";
+import { GetBrokerController } from "./controllers/GetBrokerController";
+import { GetCategoriesController } from "./controllers/GetCategoriesController";
+import { GetTypesController } from "./controllers/GetTypesController";
 const routes = Router()
 const upload = multer(multerConfig)
 
@@ -27,6 +30,11 @@ routes.post('/login', new LoginAdminController().handle)
 //routes.get('/profile', new GetProfileController().handle);
 
 
+//rotas para as categorias
+routes.get('/get-categories', new GetCategoriesController().handle)
+
+//rotas para os tipos de imóveis
+routes.get('/get-types', new GetTypesController().handle)
 
 //rotas para o corretor ~ broker' routes
 routes.post('/create-broker',
@@ -44,6 +52,10 @@ routes.put('/update-broker/:id',
 routes.patch('/disable-broker/:id',
     new AuthMiddleware().handle,
     new DisableBrokerController().handle
+)
+
+routes.get('/get-broker',
+    new GetBrokerController().handle
 )
 
 
