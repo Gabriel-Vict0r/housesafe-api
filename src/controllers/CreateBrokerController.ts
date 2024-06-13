@@ -6,7 +6,8 @@ import { CreateBrokerService } from "../services/CreateBrokerService";
 
 export class CreateBrokerController {
     async handle(req: Request, res: Response) {
-        const broker = req.body
+        let { broker } = req.body
+        broker = JSON.parse(broker);
         const file = req.file
         const urlImage = `https://housesafebucket.s3.amazonaws.com/${file?.filename}`
         console.log(urlImage)

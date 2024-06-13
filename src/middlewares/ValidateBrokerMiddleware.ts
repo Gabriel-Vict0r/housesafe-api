@@ -18,8 +18,9 @@ const linkSchema: ObjectSchema<IBroker> = object({
 })
 
 export const validateBrokerMiddleware = async (req: Request, res: Response, next: NextFunction) => {
-    const broker = req.body
+    let { broker } = req.body
     console.log(broker)
+    broker = JSON.parse(broker);
     const validateBroker = { name: broker.name, phone: broker.phone, email: broker.email }
     console.log(broker)
     try {
