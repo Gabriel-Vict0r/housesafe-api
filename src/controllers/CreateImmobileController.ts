@@ -8,6 +8,9 @@ export class CreateImmobileController {
     async handle(req: Request, res: Response, next: NextFunction) {
         let { address } = req.body
         let { immobile } = req.body
+        immobile.id_broker = parseInt(immobile.id_broker)
+        immobile.id_category = parseInt(immobile.id_category)
+        immobile.id_type = parseInt(immobile.id_type)
 
         address = JSON.parse(address)
         immobile = JSON.parse(immobile)
