@@ -39,7 +39,7 @@ routes.get('/get-types', new GetTypesController().handle)
 //rotas para o corretor ~ broker' routes
 routes.post('/create-broker',
     upload.single('image'),
-    new AuthMiddleware().handle,
+    //new AuthMiddleware().handle,
     validateBrokerMiddleware,
     uploadImageMiddleware,
     new CreateBrokerController().handle)
@@ -62,7 +62,7 @@ routes.get('/get-broker',
 //rotas para os imóveis - immobile routes
 routes.post('/create-immobile',
     upload.array('image'),
-    new AuthMiddleware().handle,
+    //new AuthMiddleware().handle,
     validateImmobileMiddleware,
     new CreateImmobileController().handle,
     uploadImagesMiddleware,

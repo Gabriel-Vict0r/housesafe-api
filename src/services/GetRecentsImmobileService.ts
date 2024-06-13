@@ -45,7 +45,6 @@ export class GetRecentsImmobileService {
                             url: true
                         },
                     }
-
                 },
 
                 orderBy: {
