@@ -49,7 +49,6 @@ export const validateImmobileMiddleware = async (req: Request, res: Response, ne
         address = JSON.parse(address)
         immobile = JSON.parse(immobile)
     }
-    immobile.id_broker = Number(immobile.id_broker)
 
     const validateImobile: Immobile = {
         street: address.street,
