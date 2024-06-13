@@ -49,6 +49,8 @@ export const validateImmobileMiddleware = async (req: Request, res: Response, ne
         address = JSON.parse(address)
         immobile = JSON.parse(immobile)
     }
+    immobile.id_broker = Number(immobile.id_broker)
+
     const validateImobile: Immobile = {
         street: address.street,
         district: address.district,
@@ -65,8 +67,8 @@ export const validateImmobileMiddleware = async (req: Request, res: Response, ne
         recreation_area: immobile.recreation_area,
         pools: immobile.pools,
         bedrooms: immobile.bedrooms,
-        id_category: immobile.id_category,
-        id_type: immobile.id_type
+        id_category: Number(immobile.id_category),
+        id_type: Number(immobile.id_type)
     }
     console.log('objeto', validateImobile)
     try {
