@@ -20,6 +20,7 @@ import { DisableImmobileController } from "./controllers/DisableImmobileControll
 import { GetBrokerController } from "./controllers/GetBrokerController";
 import { GetCategoriesController } from "./controllers/GetCategoriesController";
 import { GetTypesController } from "./controllers/GetTypesController";
+import { CreateMessageController } from "./controllers/CreateMessageController";
 const routes = Router()
 const upload = multer(multerConfig)
 
@@ -84,3 +85,8 @@ routes.get('/recents-immobile',
 )
 routes.get('/get-immobile/:id', new GetImmobileController().handle);
 export { routes }
+
+//rota para as mensagens
+routes.post('/create-message',
+    new CreateMessageController().handle
+)

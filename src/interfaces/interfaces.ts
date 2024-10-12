@@ -33,3 +33,10 @@ export interface IBroker {
     image: File;
     created_at: Date;
 }
+
+export interface IMessage {
+    name: string;
+    phone: string;
+    email: string;
+    message: string;
+}
