@@ -13,7 +13,6 @@ import { GetRecentsImmobileController } from "./controllers/GetRecentsImmobileCo
 import { GetImmobileController } from "./controllers/GetImmobileController";
 import { CreateAdminController } from "./controllers/CreateAdminController";
 import { LoginAdminController } from "./controllers/LoginAdminController";
-import { GetProfileController } from "./controllers/GetProfileController";
 import { AuthMiddleware } from "./middlewares/AuthMiddleware";
 import { DisableBrokerController } from "./controllers/DisableBrokerController";
 import { DisableImmobileController } from "./controllers/DisableImmobileController";
@@ -21,6 +20,7 @@ import { GetBrokerController } from "./controllers/GetBrokerController";
 import { GetCategoriesController } from "./controllers/GetCategoriesController";
 import { GetTypesController } from "./controllers/GetTypesController";
 import { CreateMessageController } from "./controllers/CreateMessageController";
+import { sendEmail } from "./middlewares/SendEmail";
 const routes = Router()
 const upload = multer(multerConfig)
 
@@ -88,5 +88,6 @@ export { routes }
 
 //rota para as mensagens
 routes.post('/create-message',
+    sendEmail,
     new CreateMessageController().handle
 )
