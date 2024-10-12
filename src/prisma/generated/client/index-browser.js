@@ -184,6 +184,15 @@ exports.Prisma.ImagesScalarFieldEnum = {
   url: 'url'
 };
 
+exports.Prisma.MessageScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  phone: 'phone',
+  email: 'email',
+  message: 'message',
+  status: 'status'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -202,7 +211,8 @@ exports.Prisma.ModelName = {
   Immobile: 'Immobile',
   Type: 'Type',
   Category: 'Category',
-  Images: 'Images'
+  Images: 'Images',
+  message: 'message'
 };
 
 /**
