@@ -17,7 +17,8 @@ export class GetImmobileService {
                     address: true,
                     category: true,
                     type: true,
-                    broker: true
+                    broker: true,
+                    Images: true
                 }
             })
             console.log(immobile)
